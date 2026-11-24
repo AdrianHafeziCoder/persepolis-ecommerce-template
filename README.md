@@ -1,4 +1,4 @@
-# Royal Bazaar — Achaemenid Store Template (Next.js)
+# Royal Bazaar — Achaemenid Store Template (Next.js) (LIVE:)[https://adrianhafezicoder.github.io/persepolis-ecommerce-template/]
 
 A front-end-only e-commerce template with an Achaemenid / Persepolis theme.
 React + Next.js (App Router) and GSAP scroll animations. **No backend, no database, no environment variables.**
