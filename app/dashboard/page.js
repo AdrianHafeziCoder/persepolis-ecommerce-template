@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { api, fa, CUR } from '@/lib/api';
+import { go } from '@/lib/base';
 import { getCart, setCart } from '@/lib/cart';
 import useMe from '@/lib/useMe';
 import Nav from '@/components/Nav';
@@ -19,7 +20,7 @@ export default function Dashboard() {
     api('products').then((j) => setProds(j.products));
     api('orders').then((j) => setOrders(j.orders)).catch(() => {});
   }, []);
-  useEffect(() => { if (!loading && !user) location.href = '/login'; if (user) refresh(); }, [loading, user, refresh]);
+  useEffect(() => { if (!loading && !user) go('/login'); if (user) refresh(); }, [loading, user, refresh]);
   const ok = !!user;
   useEffect(() => {
     if (!ok) return;

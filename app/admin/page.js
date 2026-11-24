@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { api, fa, CUR } from '@/lib/api';
+import { go } from '@/lib/base';
 import useMe from '@/lib/useMe';
 import Nav from '@/components/Nav';
 import { Faravahar } from '@/components/Art';
@@ -22,7 +23,7 @@ export default function Admin() {
   }, []);
   useEffect(() => {
     if (loading) return;
-    if (!user || user.role !== 'admin') { location.href = '/login'; return; }
+    if (!user || user.role !== 'admin') { go('/login'); return; }
     refresh();
   }, [loading, user, refresh]);
 

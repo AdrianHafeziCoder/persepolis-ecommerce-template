@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { api, fa } from '@/lib/api';
+import { go } from '@/lib/base';
 import { getCart } from '@/lib/cart';
 
 export default function Nav({ user }) {
@@ -11,7 +12,7 @@ export default function Nav({ user }) {
     f(); window.addEventListener('cart', f);
     return () => window.removeEventListener('cart', f);
   }, []);
-  const out = async () => { await api('auth/logout', { method: 'POST' }); location.href = '/'; };
+  const out = async () => { await api('auth/logout', { method: 'POST' }); go('/'); };
   return (
     <nav>
       <b>𐎠 Royal Bazaar</b>

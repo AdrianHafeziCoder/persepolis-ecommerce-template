@@ -39,4 +39,7 @@ This is a demo. Sign-in is simulated in the browser: passwords are stored in pla
 To add a real backend later, replace the body of `api()` in `lib/api.js` with `fetch` calls to your server (and hash passwords there).
 
 ## Deploy
-Works on any host that runs Next.js (for example Vercel); no settings or variables are needed.
+- **Vercel / any Next.js host:** no settings or variables are needed.
+- **GitHub Pages:** in the repository go to Settings → Pages and set Source to **GitHub Actions**. The workflow in `.github/workflows/deploy.yml` builds a static export on every push to `main`. The site appears at `https://<username>.github.io/<repo-name>/`.
+  (If you use a custom domain, remove the `NEXT_PUBLIC_BASE_PATH` line from the workflow.)
+- Use `go('/path')` from `lib/base.js` for redirects, so they keep working under the Pages sub-path.

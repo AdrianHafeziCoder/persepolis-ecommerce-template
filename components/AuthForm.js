@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { api } from '@/lib/api';
+import { go } from '@/lib/base';
 import useMe from '@/lib/useMe';
 import Nav from './Nav';
 import { Faravahar } from './Art';
@@ -27,7 +28,7 @@ export default function AuthForm({ mode }) {
       const { user: u } = await api(reg ? 'auth/register' : 'auth/login', {
         method: 'POST', body: { name: f.get('name'), email: f.get('email'), password: f.get('password') }
       });
-      location.href = u.role === 'admin' ? '/admin' : '/dashboard';
+      go(u.role === 'admin' ? '/admin' : '/dashboard');
     } catch (x) { setErr(x.message); setBusy(false); }
   };
   return (<>
